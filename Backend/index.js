@@ -6,7 +6,9 @@ require("dotenv").config();
 const app = express();
 app.use(cors());
 app.use(express.json());
-
+app.get("/", () => {
+  console.log("Hi");
+});
 app.post("/newTrip", async (req, res) => {
   try {
     const trip = new Trip({
