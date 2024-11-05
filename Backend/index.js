@@ -4,8 +4,15 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
 const app = express();
-app.use(cors());
+
 app.use(express.json());
+const corsOptions = {
+  origin: "https://faraway-2.vercel.app/", // Set your frontend domain here
+  methods: "GET,POST,PUT,DELETE", // Allowed methods
+  allowedHeaders: "Content-Type,Authorization", // Headers allowed
+};
+
+app.use(cors(corsOptions));
 
 app.post("/newTrip", async (req, res) => {
   try {
