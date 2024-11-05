@@ -6,9 +6,18 @@ require("dotenv").config();
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.get("/", () => {
-  console.log("Hi");
-});
+
+mongoose
+  .connect(process.env.DB_URL)
+  .then(() => {
+    console.log("conneted");
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
+
+app.listen(5000);
+
 app.post("/newTrip", async (req, res) => {
   try {
     const trip = new Trip({
@@ -55,13 +64,3 @@ app.get("/findTrip/:tripId", async (req, res) => {
     res.status(500).json({ message: "Error retriving trip", err });
   }
 });
-
-app.listen(5000);
-mongoose
-  .connect(process.env.DB_URL)
-  .then(() => {
-    console.log("conneted");
-  })
-  .catch((err) => {
-    console.log(err.message);
-  });
