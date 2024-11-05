@@ -9,7 +9,9 @@ app.use(cors());
 require("dotenv").config();
 
 mongoose
-  .connect(process.env.DB_URL)
+  .connect(
+    "mongodb+srv://VHVK:vhvk@cluster0.ocdzo.mongodb.net/faraway?retryWrites=true&w=majority&appName=Cluster0"
+  )
   .then((res) => console.log("mongodb  connect success"))
   .catch((err) => console.log("mongodb connect error"));
 
