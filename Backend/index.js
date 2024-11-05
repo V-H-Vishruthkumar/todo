@@ -4,20 +4,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 const app = express();
-app.use(express.json());
 app.use(cors());
-require("dotenv").config();
-
-mongoose
-  .connect(
-    "mongodb+srv://VHVK:vhvk@cluster0.ocdzo.mongodb.net/faraway?retryWrites=true&w=majority&appName=Cluster0"
-  )
-  .then((res) => console.log("mongodb  connect success"))
-  .catch((err) => console.log("mongodb connect error"));
-
-app.listen(8080, async () => {
-  console.log("Server is running on port 8080");
-});
+app.use(express.json());
 
 app.post("/newTrip", async (req, res) => {
   try {
@@ -65,3 +53,15 @@ app.get("/findTrip/:tripId", async (req, res) => {
     res.status(500).json({ message: "Error retriving trip", err });
   }
 });
+
+app.listen(5000);
+mongoose
+  .connect(
+    "mongodb+srv://VHVK:vhvk@cluster0.ocdzo.mongodb.net/faraway?retryWrites=true&w=majority&appName=Cluster0"
+  )
+  .then(() => {
+    console.log("conneted");
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
