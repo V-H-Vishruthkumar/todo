@@ -2,13 +2,13 @@ import { Link } from "react-router-dom";
 import { Header } from "../components/Header";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-
+import { backendUrl } from "../url";
 export function Existing() {
   const [tripId, setTripId] = useState("");
   const navigate = useNavigate();
   async function findTrip(e) {
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/findTrip/" + tripId);
+    const response = await fetch(`${backendUrl}/findTrip/` + tripId);
     const resData = await response.json();
     navigate(`/components/main/${resData.tripId}`);
     if (!response.ok) {

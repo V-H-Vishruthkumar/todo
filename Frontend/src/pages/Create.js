@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 import { Header } from "../components/Header";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { backendUrl } from "../url";
 export function Create() {
   const [tripName, setTripName] = useState("");
   const [tripId, setTripId] = useState();
   const navigate = useNavigate();
   async function createNewTrip(e) {
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/newTrip", {
+    const response = await fetch(`${backendUrl}/newTrip`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ tripName: tripName }),

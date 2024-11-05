@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Item } from "./Item";
 import { useParams } from "react-router-dom";
-
+import { backendUrl } from "../url";
 export function PackingList({
   items,
   onDeleteItem,
@@ -33,7 +33,7 @@ export function PackingList({
   }
 
   async function addItems() {
-    const response = await fetch("http://localhost:5000/addItems", {
+    const response = await fetch(`${backendUrl}/addItems`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ tripItems: items, tripId: tripId }),
@@ -46,7 +46,7 @@ export function PackingList({
     }
   }
   async function findTrip() {
-    const response = await fetch("http://localhost:5000/findTrip/" + tripId);
+    const response = await fetch(`${backendUrl}/findTrip/` + tripId);
     const resData = await response.json();
     setItems(resData.items);
     getTripName(resData.name);
