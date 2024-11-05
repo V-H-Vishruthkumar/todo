@@ -2,21 +2,20 @@ const Trip = require("./models/tripdata");
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-require("dotenv").config();
+
 const app = express();
-app.use(cors());
 app.use(express.json());
+app.use(cors());
+require("dotenv").config();
 
 mongoose
   .connect(process.env.DB_URL)
-  .then(() => {
-    console.log("conneted");
-  })
-  .catch((err) => {
-    console.log(err.message);
-  });
+  .then((res) => console.log("mongodb  connect success"))
+  .catch((err) => console.log("mongodb connect error"));
 
-app.listen(5000);
+app.listen(8080, async () => {
+  console.log("Server is running on port 8080");
+});
 
 app.post("/newTrip", async (req, res) => {
   try {
