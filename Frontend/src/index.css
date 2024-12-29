@@ -4,6 +4,12 @@ const initialItems = [
   { id: 2, description: "Socks", quantity: 12, packed: false },
 ];
 */
+/* 1. Minimalist (Clean and Professional)
+Background: #F7F9FC (Light Grayish Blue)
+Primary: #3B82F6 (Bright Blue)
+Accent: #10B981 (Emerald Green)
+Text: #1F2937 (Dark Grayish Blue)
+Completed Tasks: #D1D5DB (Gray) */
 
 @import url("https://fonts.googleapis.com/css2?family=Monoton&family=Quicksand:wght@500;700&display=swap");
 
@@ -20,139 +26,124 @@ html {
 body {
   font-size: 2.4rem;
   font-family: sans-serif;
-  color: #5a3e2b;
+  color: #1f2937;
   font-family: "Quicksand";
   font-weight: 500;
-  background-color: #5a3e2b;
+  background-color: #f7f9fc;
 }
 
 .app {
-  width: 100%;
-  height: 100vh;
-  display: grid;
-  grid-template-rows: auto auto 1fr auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
+.header {
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  padding-top: 2rem;
+}
 h1 {
   text-align: center;
-  background-color: #f4a226;
-  font-family: "Monoton";
-  font-size: 8rem;
+  font-size: 5rem;
   text-transform: uppercase;
   font-weight: 400;
   word-spacing: 30px;
   letter-spacing: -5px;
   padding: 2.4rem 0;
 }
-
-.add-form {
-  background-color: #e5771f;
-  padding: 2.8rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.8rem;
-}
-
-h3 {
-  margin-right: 1.6rem;
-  font-size: 3.4rem;
-  color: aliceblue;
-  text-align: center;
-  padding: 2.6rem 0rem 0rem;
-}
-
-button,
-select,
 input {
-  background-color: #ffebb3;
-  color: #5a3e2b;
+  background-color: #f7f9fc;
+  color: #1f2937;
   font-family: inherit;
-  border: none;
+  border: 1.5px solid black;
   border-radius: 10rem;
-  padding: 1.2rem 3.2rem;
+  padding: 1.6rem 3.6rem;
   font-weight: 700;
   font-size: 1.8rem;
   cursor: pointer;
 }
-
-.add-form button {
-  text-transform: uppercase;
-  background-color: #76c7ad;
+button {
+  background-color: #10b981;
+  color: #1f2937;
+  font-family: inherit;
+  border: 1.5px solid black;
+  border-radius: 10rem;
+  padding: 1.6rem 3.6rem;
+  font-weight: 700;
+  font-size: 2rem;
+  cursor: pointer;
 }
-
+.add-form {
+  padding: 2.8rem 0;
+  display: grid;
+  grid-template-columns: 4fr 4fr 1fr;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding-right: 2.5rem;
+}
 .list {
-  background-color: #5a3e2b;
-  color: #ffebb3;
   padding: 4rem 0;
-
+  width: 125rem;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   gap: 3.2rem;
   align-items: center;
 }
-
-.actions button,
-.list select {
-  text-transform: uppercase;
-  padding: 0.8rem 2.4rem;
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin: 0 0.8rem;
-}
-
 .list ul {
   list-style: none;
   width: 80%;
   /* overflow: scroll; */
-
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.2rem;
   justify-content: center;
   align-content: start;
 }
 
-.list li {
-  display: flex;
+.title-des {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: min-content;
+  gap: 0.5rem;
+}
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.listitem {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  gap: 1.4rem;
   align-items: center;
-  gap: 1.2rem;
+  background-color: #3b82f6;
+  color: #f7f9fc;
+  padding: 1.6rem 3.6rem;
+  border-radius: 2rem;
+  width: 100%;
 }
-
-input[type="checkbox"] {
-  height: 2rem;
-  width: 2rem;
-  accent-color: #e5771f;
-}
-
-.list li button {
-  cursor: pointer;
-  background: none;
-  border: none;
-  font-size: 1.8rem;
-  padding: 0.8rem;
-  transform: translateY(2px);
-}
-
-.stats {
-  background-color: #76c7ad;
-  text-align: center;
-  font-weight: 700;
-  padding: 3.2rem 0;
-}
-.logincon {
-  color: #ffebb3;
+.buttons {
   display: flex;
-  flex-direction: column;
+  gap: 1rem;
+}
+.buttons button {
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+}
+.isCompleted {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  gap: 1.4rem;
+  align-items: center;
+  background-color: #d1d5db;
+  color: #1f2937;
+  padding: 1.6rem 3.6rem;
+  border-radius: 2rem;
+}
+.signin {
+  padding-top: 5rem;
+  display: grid;
+  gap: 2.4rem;
   align-items: center;
   justify-content: center;
-  gap: 3.5rem;
-  padding-top: 8rem;
-}
-.loginbtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
 }
